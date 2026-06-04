@@ -52,7 +52,7 @@ async function openEditTaskOverlay(progress, indexTask) {
  * @param {number} indexTask - the index of the task in the tasks-array
  */
 async function boardAddTask(overlay, progress, indexTask) {
-    fetch('addTask.html')
+    fetch('../html/addTask.html')
         .then(response => {
             return response.text()
         })
