@@ -1,4 +1,3 @@
-
 // include.js
 /**
  * Asynchronously includes HTML content into elements with the "w3-include-html" attribute.

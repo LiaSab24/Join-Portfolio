@@ -15,6 +15,7 @@ function closeOverlays() {
     toggleMessageNoTasks();
 }
 
+
 /**
  * This function opens the background overlay for board-overlays
  */
@@ -26,6 +27,7 @@ function openBoardBgOverlay() {
         boardOverlayBgContentRef.classList.add("overlay-active");
     }, 100);
 }
+
 
 /**
  * This function opens the editTaskOverlay for the clicked task, which gives the user the ability to edit the information
@@ -40,6 +42,7 @@ async function openEditTaskOverlay(progress, indexTask) {
     overlayContentRef.innerHTML = "";
     overlayContentRef += await boardAddTask('edit', progress, indexTask);
 }
+
 
 /**
  * This function fetches the main-part of the add_task.html and implementes it in the #addTaskOverlay-section
@@ -64,6 +67,7 @@ async function boardAddTask(overlay, progress, indexTask) {
         })
 }
 
+
 /**
 * This function is part of the boardAddTask()-function and adds visibility of the #addTaskOverlay
 * 
@@ -81,6 +85,7 @@ async function openBoardAddTaskOverlay(addTaskOverlayContent, progress) {
     fillAssignedToDropDownMenu();
 }
 
+
 /**
 * This function is part of the openBoardAddTaskOverlay()-function.
 * It changes the classList of the #addTaskCreate-Button, so the added task is added in the right progress-category
@@ -92,6 +97,7 @@ function adjustAddTaskProgress(progress) {
     addTaskCreateBtnClassList.remove("progress-toDo");
     addTaskCreateBtnClassList.add("progress-" + progress);
 }
+
 
 /**
  * This function is part of the boardAddTask()-function and adds visibility of the #addTaskOverlay
@@ -115,6 +121,7 @@ async function adjustBoardEditTaskOverlay(addTaskOverlayContent, progress, index
     fillAssignedToDropDownMenu();
 }
 
+
 /**
 * This function opens the overviewOverlay for the clicked task, which gives an overview over the task-information
 * 
@@ -135,6 +142,7 @@ function openTaskOverview(indexTask) {
     }
 }
 
+
 /**
 * This function is part of the openTaskOverview()-function and fills the "overviewAssignedContacts" and "overviewSubtasks" for the contact in the edit-overlay
 * 
@@ -152,6 +160,7 @@ function fillTaskOverviewLists(indexTask) {
         document.getElementById("hideForNoSubtasks").classList.add("d-none");
     }
 }
+
 
 /**
 * This function is part of the fillTaskOverviewLists()-function and displays the assigned contacts on the board-overview-overlay
@@ -171,6 +180,7 @@ function assignedToOverviewList(indexTask) {
     }
     shortAssignedToListBoardOverview();
 }
+
 
 /**
  * This function checks the number of assigned to contacts for a task. If there are more than five contacts, only the first five are shown and the other ones are hidden.
@@ -192,6 +202,7 @@ function shortAssignedToListBoardOverview() {
     }
 }
 
+
 /**
 * This function is part of the fillTaskOverviewLists()-function and displays the subtasks on the board-overview-overlay
 * 
@@ -203,6 +214,7 @@ function subtasksOverviewList(indexTask) {
         document.getElementById("overviewSubtasks" + indexTask).innerHTML += getBoardOverviewSubtask(subtask, indexSubtask, indexTask)
     }
 }
+
 
 /**
 * This function is used to assign subtasks as completed
@@ -216,6 +228,7 @@ async function completedSubtask(indexSubtask, indexTask) {
     checkboxContentRef.classList.toggle("checkbox-completed-true");
     await updateTaskSubtaskProgress(indexTask);
 }
+
 
 /**
 * This function is used to assign subtasks as completed
@@ -238,6 +251,7 @@ async function updateTaskSubtaskProgress(indexTask) {
     });
 }
 
+
 /**
  * This function fills in the inputs of the edit-task-overlay with the information of the corresponding task
  * 
@@ -256,6 +270,7 @@ function fillEditTaskInputs(indexTask) {
     document.getElementById("addTaskCategory").placeholder = tasks[indexTask].category;
     fillEditTaskFormLists(indexTask);
 }
+
 
 /**
  * This function is part of the fillEditTaskInputs()-function fills the "addTaskAssignedToList" and "addTaskSubtaskList" for the contact in the edit-overlay
@@ -276,6 +291,7 @@ function fillEditTaskFormLists(indexTask) {
         }
     }
 }
+
 
 /**
  * This function sends the path of the task that should be deleted to firebase

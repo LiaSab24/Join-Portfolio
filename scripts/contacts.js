@@ -1,5 +1,6 @@
 const addressBookContentRef = document.getElementsByClassName("contacts-letter");
 
+
 /**
  * This function is the inital function, when contacts.html is loading and executes the init()-function and furher necessary contacts-functions
  */
@@ -12,6 +13,7 @@ async function initContacts() {
     hideNotUsedLetters();
     adjustToWindowSize();
 }
+
 
 /**
  * This function checks the windows inner width and toggles the visibilty of the section "contactFocus"
@@ -33,6 +35,7 @@ function adjustToWindowSize() {
     }
 }
 
+
 /**
  * This function clears the contacts-list for each letter and redirects to the function, that fills the list with contacts
  */
@@ -42,6 +45,7 @@ function renderAddressBook() {
     }
     renderContacts();
 }
+
 
 /**
  * This function extracts the first letter of each contacts name and adds the contact to the corresponding letter (with a template)
@@ -54,6 +58,7 @@ function renderContacts() {
         profileBadgeColor("profileBadge" + indexContact, indexContact);
     }
 }
+
 
 /**
  * This function is executed after the address book finished rendering and iterates through each letter and hides it, if it does not contain any contact
@@ -69,12 +74,14 @@ function hideNotUsedLetters() {
     }
 }
 
+
 /**
  * This function removes the 'contact-clicked'-class from all contacts
  */
 function clearActiveContacts() {
     document.querySelectorAll('.contact-clicked').forEach(contact => contact.classList.remove("contact-clicked"));
 }
+
 
 /**
  * This function opens the ContactsOverlay (for addding a new or editing an existing contact), background-overlay and overlay-animations)
@@ -89,6 +96,7 @@ function openContactsOverlay() {
         document.getElementById("overlayContact").classList.remove("animation-open-overlay");
     }, 2400);
 }
+
 
 /**
  * This function opens the ContactsOverlay 
@@ -107,6 +115,7 @@ function closeContactsOverlay() {
     }, 2400);
 }
 
+
 /**
  * This function is used, when the user wants to add a new contact instead of editing one.
  * The contacts-overlay adjusts accordingly.
@@ -118,6 +127,7 @@ function adjustOverlayToAdd() {
     document.getElementById("overlayProfileBadge").innerHTML = "<img src='../assets/icons/contacts-overlay-profile-badge-anonymous.svg'>";
     document.getElementById("contactsSubmitBtns").innerHTML = getContactsOverlayAddBtnsTemplate();
 }
+
 
 /**
  * This function is used, when the user wants to edit a contact instead of adding a new one.
@@ -135,6 +145,7 @@ function adjustOverlayToEdit(indexContact) {
     document.getElementById("contactsSubmitBtns").innerHTML = getContactsOverlayEditBtnsTemplate(indexContact);
 }
 
+
 /**
  * This function clears the input-values of the contact-overlay-form
  */
@@ -143,6 +154,7 @@ function clearContactForm() {
     document.getElementById("addContactMail").value = "";
     document.getElementById("addContactPhone").value = "";
 }
+
 
 /**
  * This function reads out the data of the add-contact-form and sends it to firebase to add a new contact
@@ -163,6 +175,7 @@ async function addContact() {
     if (document.getElementById("addContactPhone").value.trim() == "") { contactsPhoneRequirementUnfullfilled() }
 }
 
+
 /**
  * This function redirects to different functions that are used to display the clicked contact 
  * 
@@ -178,6 +191,7 @@ function contactSuccessfully(activity, indexContact) {
     }
 }
 
+
 /**
  * This function executes the checkFilledInput-functions for each of the inputs
  */
@@ -186,6 +200,7 @@ function checkContactsInputs() {
     checkFilledInput("addContactMail");
     checkFilledInput("addContactPhone");
 }
+
 
 /**
  * This function shows the alertPhone, if the contactPhone-input is empty
@@ -196,6 +211,7 @@ function contactsPhoneRequirementUnfullfilled() {
         document.getElementById("alertPhone").classList.add("invisible");
     }, 2400);
 }
+
 
 /**
  * This function redirects to different functions that are used to display the clicked contact 
@@ -216,6 +232,7 @@ function contactClicked(indexContact) {
     document.getElementById("menuEditDeleteMobile").innerHTML = getContactsMenuMobileTemplate(indexContact)
 }
 
+
 /**
  * This function closes the focused contact and shows the addressbook again
  */
@@ -226,6 +243,7 @@ function mobileArrowBackwards() {
     document.getElementById("addNewContactBtnMobile").classList.remove("d-none");
 }
 
+
 /**
  * This function toggles the visibilty of the delete-/edit-contact-menu for mobile
  */
@@ -233,6 +251,7 @@ function toggleEditDeleteMenuMobile() {
     document.getElementById("menuEditDeleteMobile").classList.toggle("d-none");
     document.getElementById("overlayInvisible").classList.toggle("d-none");
 }
+
 
 /**
  * This function adds the 'contact-clicked'-class to the clicked contact (userfeedback)
@@ -242,6 +261,7 @@ function toggleEditDeleteMenuMobile() {
 function highlightContact(indexContact) {
     document.getElementById("id" + indexContact).classList.add("contact-clicked");
 }
+
 
 /** 
  * This function shows the clicked contact in a large view
@@ -262,6 +282,7 @@ function updateFocusedContact(indexContact) {
     }, 250)
     focusedContactRef.classList.remove("animation-focused-contact");
 }
+
 
 /**
  * This function reads out the data of the add-contact-form and sends it to firebase to replace the previous contacts-data
@@ -286,6 +307,7 @@ async function saveEditContact(indexContact) {
     if (document.getElementById("addContactPhone").value.trim() == "") { contactsPhoneRequirementUnfullfilled() }
 }
 
+
 /**
  * This function checks if the inputs are valide and saves the edited contact
  */
@@ -298,6 +320,7 @@ async function saveEditContactUser() {
     } else { checkContactsInputs() }
     if (document.getElementById("addContactPhone").value.trim() == "") { contactsPhoneRequirementUnfullfilled(); }
 }
+
 
 /**
  * This function sends the data of the add-contact-form to firebase to replaces the previous data (for users and contacts)
@@ -319,6 +342,7 @@ async function editContactUser(userName, userMail) {
     });
 }
 
+
 /**
  * This function sends the path of the contact that should be deleted to firebase
  * 
@@ -334,6 +358,7 @@ async function deleteContact(indexContact) {
     }
 }
 
+
 /**
  * This function checks if the pressed key is a N umber and returns it if true.
  * Like this, only numbers (and "+") are valide inputs
@@ -347,6 +372,7 @@ function onlyAllowNumbers(event) {
         event.preventDefault()
     }
 }
+
 
 /**
  * This function checks if the pressed key is a not space and returns it if true.

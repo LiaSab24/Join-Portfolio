@@ -7,6 +7,7 @@ async function initAddTask() {
     fillAssignedToDropDownMenu(); 
 }
 
+
 /**
  * This function clears and resets the add-task-form (input-values, drop-down-menus and buttons)
  */
@@ -24,6 +25,7 @@ async function clearTaskForm() {
     document.getElementById("prioMediumImg").src = "../assets/icons/prioMedium-clicked.svg";
 }
 
+
 /**
  * This function is part of the clearTaskForm-function and resets the select-input and list for the assigned contacts
  */
@@ -32,6 +34,7 @@ function clearAssignedTo() {
     document.getElementById("addTaskDropdownContacts").innerHTML = "";
     document.getElementById("addTaskAssignedToListContent").innerHTML = "";
 }
+
 
 /**
  * This function is part of the clearTaskForm-function and resets the priority-buttons
@@ -45,6 +48,7 @@ function clearPriorityBtns() {
     document.getElementById("prioLowImg").src = "../assets/icons/prioLow.svg";
 }
 
+
 /**
  * This function adds the invisible overlay behind the dropdown-menu for "assigned to" and "category"
  * This way, the user is able to close those menues by clicking outside the menu
@@ -53,6 +57,7 @@ function addAddTaskOverlay() {
     let overlayBgContentRef = document.getElementById("addTaskOverlayBg");
     overlayBgContentRef.classList.remove("d-none");
 }
+
 
 /**
  * This function removes the invisible overlay behind the dropdown-menu for "assigned to" and "category"
@@ -72,6 +77,7 @@ async function removeAddTaskOverlay() {
     fillAssignedToDropDownMenu()
 }
 
+
 /**
  * This function toggles the visibility of the dropdown-menu for "assigned to" and "category"
  * 
@@ -84,6 +90,7 @@ function toggleAddTaskToDropDownMenu(inputContentRef, DropdownContentRef) {
     document.getElementById(inputContentRef).classList.add("add-task-current-select");
     document.getElementById(DropdownContentRef).classList.remove("d-none");
 }
+
 
 /**
  * This function fills the assigned-to-dropdown-menu with the contacts from the contact-array(template)
@@ -105,6 +112,7 @@ function fillAssignedToDropDownMenu() {
     }
 }
 
+
 /**
  * This function gives the user the ability to see, which contacts are currently assigned
  * 
@@ -118,6 +126,7 @@ function contactAssigned(contentRef, indexContact) {
     assignedToCheckbox.classList.toggle("dropdown-option-checkbox-assigned");
     addAssignedContactToList(indexContact);
 }
+
 
 /**
  * This function removes the assigned contact profile badge from the assigned-contacts-list, if it is in the list.
@@ -137,6 +146,7 @@ function addAssignedContactToList(indexContact) {
     shortAssignedToList();
 
 }
+
 
 /**
  * This function checks the number of assigned to contacts for a task. If there are more than five contacts, only the first five are shown and the other ones are hidden.
@@ -158,6 +168,7 @@ function shortAssignedToList() {
     }
 }
 
+
 /**
  * This function checks if the searchInput contains two or more characters. If so, it executes the displayFilteredContacts()-function
  * If not, it fills the dropdown-list with all contacts.
@@ -176,7 +187,8 @@ function startSearchingContacts() {
     searchInputRef.focus();
     classListAssignedContacts();
 }
- 
+
+
 /**
  * This function fills the dropdownlist with the filtered elements.
  * 
@@ -192,6 +204,7 @@ function displayFilteredContacts(searchInput) {
         }
     }
 }
+
 
 /**
  * This function filters those contacts from the contacts-array, whose name contains the searchInput
@@ -209,6 +222,7 @@ function filterContacts(searchInput) {
         }
     }
 }
+
 
 /**
  * This function checks, which contacts are currently in the assignedTo-List and gives those contacts the "option-contact-assigned"-class in the dropdownlist.
@@ -229,6 +243,7 @@ function classListAssignedContacts() {
     }
 }
 
+
 /**
  * This function is used to show user-feedback (color and image) for the clicked priority-button and adds the class "clicked" for the submission later
  * 
@@ -243,6 +258,7 @@ function priorityBtnBg(priority) {
     clickedPrioBtnImg.src = "../assets/icons/" + priority + "-clicked.svg";
 }
 
+
 /**
  * This function shows the currently clicked task-category
  * 
@@ -255,6 +271,7 @@ function selectTaskCategory(category) {
     removeAddTaskOverlay();
     document.getElementById("addTaskCategory").classList.remove("requirement-unfulfilled");
 }
+
 
 /**
  * This function changes the icons of the subtask-input, depending on whether the input is focused or not
@@ -269,6 +286,7 @@ function changeSubtaskIcons() {
     }, 100);
 }
 
+
 /**
  * This function clears the input-value of the subtask-input
  */
@@ -276,6 +294,7 @@ function clearSubtasksInput() {
     const subtasksInputRef = document.getElementById("addTaskSubtask");
     subtasksInputRef.value = "";
 }
+
 
 /**
  * This function reads out the input-value from the subtask-input and adds this subtask in the list below (template)
@@ -305,6 +324,7 @@ function handleSubtaskEnter(event) {
     }
 }
 
+
 /**
  * This function replaces the subtask-list element with an input (template).
  * This way the user is able to edit the subtask-content.
@@ -321,6 +341,7 @@ function editSubtask(indexSubtask) {
     }
 }
 
+
 /**
  * This function deletes the the chosen subtask from the subtasks-list
  * 
@@ -331,6 +352,7 @@ function deleteSubtask(indexSubtask) {
     subtaskContentRef.remove();
     removeAddTaskOverlay();
 }
+
 
 /**
  * This function replaces the subtask-edit element with an list element (template) and includes the edited input-value. 

@@ -3,6 +3,7 @@ let tasksInProgress = 0;
 let tasksAwaitFeedback = 0;
 let tasksDone = 0;
 
+
 /**
  * This function is the inital function, when summary.html is loading and executes the init()-function and furher necessary summary-functions
  */
@@ -17,6 +18,7 @@ async function initSummary() {
     greetingDaytime();
     showUserName();
 }
+
 
 /** 
  * This function fills the according tasks-numbers in the different "counterTasks"-container
@@ -37,6 +39,7 @@ function showTasksNumbers() {
     document.getElementById("counterTasksUrgent").innerHTML = urgentTasks;
 }
 
+
 /**
  * This function iterates through the task progresses of the tasks-array and counts up the according task-progress-number
  */
@@ -51,6 +54,7 @@ function countTasksInProgressCategories() {
         }
     }
 }
+
 
 /**
  * This function sorts out, wich of the tasks dueDate values is the closest to the current date and fills in the "nextDeadline"-container accordingly
@@ -71,6 +75,7 @@ function showNextDeadline() {
     document.getElementById("nextDeadline").innerHTML = upCommingDeadlineMonth + " " + upCommingDeadlineDay + ", " + upCommingDeadlineYear;
 }
 
+
 /**
  * This function uses the daytime-hours-number to choose the appropriate greeting according to the time of the day and displays it
  */
@@ -81,6 +86,7 @@ function greetingDaytime() {
         ((daytime >= 13 && daytime <= 18) ? "Good afternoon," : "Good evening,");
     greetingContentRef.innerHTML = greeting;
 }
+
 
 /**
  * This function displays the name of the current user and redirects to the guestGreeting()-function if the user used the guest-login
@@ -93,6 +99,7 @@ function showUserName() {
         guestGreeting();
     }
 }
+
 
 /**
  * This function removes the comma from the the current Greeting
@@ -107,6 +114,7 @@ function guestGreeting() {
         greetingContentRef.innerHTML = newGreeting.replace("!", " ").trim();
     }
 }
+
 
 /**
  * This function redirects the user to the board-page

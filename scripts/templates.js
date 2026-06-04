@@ -13,6 +13,7 @@ function getAddTaskDropdownListUserOption(indexUser) {
             </div>`
 }
 
+
 /** 
  * This template displays a contact in the add-task-assigned-to-dropdown-menu
  * 
@@ -27,7 +28,8 @@ function getAddTaskDropdownListContacts(indexContact) {
                 <div id="assignedToCheckbox${indexContact}" class="dropdown-option-checkbox"></div>
             </div>`
 }
- 
+
+
 /**
  * This template displays a contacts profile badge in the add-task-assigned-to-list
  * 
@@ -36,6 +38,7 @@ function getAddTaskDropdownListContacts(indexContact) {
 function getAddTaskContactPB(indexContact) {
     return `<div id="addTaskAssignedToListPB${indexContact}" class="profile-badge assigned-contact">${nameAbbreviation(indexContact)}</div>`
 }
+
 
 /**
  * This template creates an entrie for the subtasks-list in the add-task-form
@@ -48,6 +51,7 @@ function getAddTaskSubtaskTemplate(subtask, indexSubtask) {
             ${getAddTaskSubtaskListElementTemplate(subtask, indexSubtask)}
             </div>`
 }
+
 
 /**
  * This template displays the content of a subtask in a list element.
@@ -64,6 +68,7 @@ function getAddTaskSubtaskListElementTemplate(subtask, indexSubtask) {
             </div>`
 }
 
+
 /**
  * This template displays the content of a subtask in an input.
  * 
@@ -79,12 +84,14 @@ function getAddTaskSubtaskEditTemplate(subtask, indexSubtask) {
             </div>`
 }
 
+
 /**
  * This template includes a button to close board's overlays
  */
 function getBoardCloseBtnTemplate() {
     return `<img onclick="closeOverlays()" src="../assets/icons/overlay-close.svg" class="overlay-close"></img>`
 }
+
 
 /**
  * This template creates a (by default invisible) marked area, where a dragged element can be released. Ondragover it becomes visible.
@@ -96,7 +103,7 @@ function getBoardDropDownAreaTemplate(contentRefId) {
                 <div ondrop="drop(event)" ondragover="event.preventDefault()" ondragenter="showDropdownArea('${contentRefId}')"></div>
             </div>`
 }
- 
+
 
 /**
  * This template creates a task-card with some information vor a task
@@ -125,6 +132,7 @@ function getBoardTaskTemplate(indexTask) {
             </div>`
 }
 
+
 /**
  * This template displays a contacts profile badge on the board's task-card
  * 
@@ -134,6 +142,7 @@ function getBoardTaskTemplate(indexTask) {
 function getBoardContactPB(indexTask, indexContact) {
     return `<div id="${indexTask}boardAssignedToListPB${indexContact}" class="assigned-contact-board${indexTask} profile-badge profile-badge-small">${nameAbbreviation(indexContact)}</div>`
 }
+
 
 /**
  * This template creates an overlay that lets the user choose, to which progress-category a task should move for mobile screens.
@@ -160,6 +169,7 @@ function getBoardTaskMoveProgressMobile(indexTask) {
                 </div>
             </div>`
 }
+
 
 /**
  * This template displays a task in a larger view showing all its necessary information
@@ -198,6 +208,7 @@ function getTaskOverviewOverlayTemplate(indexTask) {
             </div>`
 }
 
+
 /**
  * This template displays a contacts profile badge on the board's task-overview-overlay
  * 
@@ -210,6 +221,7 @@ function getBoardOverviewContactPB(indexTask, indexContact) {
                 <p id="${indexTask}contactName${indexContact}"></p>
             </div>`
 }
+
 
 /**
  * This template displays a contacts profile badge on the board's task-overview-overlay
@@ -225,6 +237,7 @@ function getBoardOverviewSubtask(subtask, indexSubtask, indexTask) {
             </div>`
 }
 
+
 /**
  * This template creates the necessary button for the editTask-overlay for the board
  * 
@@ -237,6 +250,7 @@ function getBoardEditTaskBtnTemplate(indexTask) {
                 <img src='../assets/icons/create-btn.svg'>
             </button>`
 }
+
 
 /**
  * This template creates an address book entrie for a contact
@@ -252,6 +266,7 @@ function getAddressbookContactTemplate(indexContact) {
                 </p>
             </div>`
 }
+
 
 /**
  * This template creates an overlay for the focused-contact-area with the current contacts information
@@ -288,6 +303,7 @@ function getFocusedContactTemplate(indexContact) {
             </div>`
 }
 
+
 /**
  * This template creates the two necessary buttons for the contacts-overlay 'Add contact'
  */
@@ -302,6 +318,7 @@ function getContactsOverlayAddBtnsTemplate() {
                 <img src="../assets/icons/create-btn.svg">
             </button>` 
 }
+
 
 /**
  * This template creates the two necessary buttons for the contacts-overlay 'Edit contact'
@@ -319,6 +336,7 @@ function getContactsOverlayEditBtnsTemplate(indexContact) {
                 <img src='../assets/icons/create-btn.svg'>
             </button>`
 }
+
 
 /** 
  * This template creates the two necessary buttons for the "btnsMenuMobile" to edit or delete a contact

@@ -18,6 +18,7 @@ async function addTask() {
     } else { requirementsUnfullfilled() }
 }
 
+
 /**
  * This function checks if the required add-task-inputs are filled and returns true respectively false accordingly
  */
@@ -33,6 +34,7 @@ function requirementsFullfilled() {
     }
 }
 
+
 /**
  * This function is part of the addTask()-function and if a task-category is selected and returns it
  */
@@ -42,6 +44,7 @@ function checkTaskCategory() {
         return taskCategory;
     }
 }
+
 
 /**
  * This function is part of the addTask()-function and creates and returns an array with all the assigned contacts in the assigned-contacts-list
@@ -61,6 +64,7 @@ function getAssignedContacts() {
     }
     return assignedContactsArray;
 }
+
 
 /**
  * This function checks if the picked date is valide (not in the past)
@@ -83,6 +87,7 @@ function checkDateInput() {
     }
 }
 
+
 function dateInputInvalid() {
     document.getElementById("alertAddTaskDate").classList.remove("invisible");
     document.getElementById("addTaskDate").classList.add("requirement-unfulfilled");
@@ -91,6 +96,7 @@ function dateInputInvalid() {
         document.getElementById("addTaskDate").classList.remove("requirement-unfulfilled");
     }, 2400);
 }
+
 
 /**
  * This function adds the user (if assigned) to the assignedContactsArray for a task
@@ -106,6 +112,7 @@ function getAssignedContactsUser(assignedContactsArray) {
     });
 }
 
+
 /**
  * This function returns the chosen priority for a task
  */
@@ -117,6 +124,7 @@ function getTaskPriority() {
         return clickedPriority.innerText;
     }
 }
+
 
 /**
  * This function is part of the addTask()-function and creates and returns an array with all the subtasks in the subtask-list
@@ -133,6 +141,7 @@ function getSubtasks() {
     return subtasksArray;
 }
 
+
 /**
  * This function is part of the addTask()-function and returns the progress-category, where the new task should be added
  */
@@ -145,6 +154,7 @@ function getAddProgress() {
         case "progress-awaitFeedback": return "awaitFeedback"
     }
 }
+
 
 /**
  * This function executes different functions depending on the current page (board or add task)
@@ -161,6 +171,7 @@ function currentPageFunctions() {
     }
 }
 
+
 /**
  * This function is part of the saveEditTask()-function and shows alerts and userfeedback for not filled in inputs
  */
@@ -173,6 +184,7 @@ function requirementsUnfullfilled() {
         document.getElementById("alertAddTask").classList.add("invisible");
     }, 2400);
 }
+
 
 /**
  * This function lets the user save changes for a task, wich are used tot edit the data in firebase and the tasks-array
@@ -196,6 +208,7 @@ async function saveEditTask(indexTask) {
     } else { requirementsUnfullfilled() }
 }
 
+
 /**
  * This function is part of the saveEditTask()-function and returns the progress-category, where the edited task is in
  */
@@ -208,6 +221,7 @@ function getEditProgress() {
         case "progress-done": return "done"
     }
 }
+
 
 /**
  * This function is part of the saveEditTask()-function. It checks, if the board.html is the current page and executes corresponding functions

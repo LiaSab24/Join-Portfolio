@@ -6,6 +6,7 @@ async function initSignUp() {
     clearSignUpForm();
 }
 
+
 /**
  * This function clears the input values of the sign-up-form and unchecks the checkbox
  */
@@ -16,6 +17,7 @@ function clearSignUpForm() {
     document.getElementById("confirmed").value = "";
     document.getElementById("checkboxSignUp").checked = false;
 }
+
 
 /**
  * This function reads out the input-values of the sign-up form.
@@ -38,6 +40,7 @@ async function addUser() {
     }
 }
 
+
 /**
  * This function is part of the addUser()-function and reads out the input-values of the password- and confirm-password-inputs.
  * If they are the same, the password is returned
@@ -56,6 +59,7 @@ function checkPasswordConfirmed() {
     }
 }
 
+
 /**
  * This function checks which signup-requirements are unfullfilled and gives the user feedback accordingly (alerts and marked inputs)
  * 
@@ -67,6 +71,7 @@ function logInRequirementsUnfullfilled(requirement) {
         document.getElementById("alert" + requirement + "SignUp").classList.add("invisible");
     }, 2400);
 }
+
 
 /**
  * This function reads out the data of the add-contact-form and sends it to firebase
@@ -83,6 +88,7 @@ async function addUserToContacts(userName, userMail) {
     signUpSuccessfully();
 }
 
+
 /**
  * This function executes the necessary functions for a successfull sign-up
  */
@@ -94,12 +100,14 @@ function signUpSuccessfully() {
     }, 1800);
 }
 
+
 /**
  * This function redirects the user to the log-in-page
  */
 function redirectionToLogIn() {
     window.location.href = "../index.html";
 }
+
 
 /**
  * This function executes the necessary functions for a unsuccessfull sign-up

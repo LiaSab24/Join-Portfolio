@@ -8,6 +8,7 @@ async function initBoard() {
   toggleMessageNoTasks();
 }
 
+
 /**
  * This function clears each of the progress-catergories
  */
@@ -17,6 +18,7 @@ function clearTaskProgressCategories() {
   document.getElementById("awaitFeedback").innerHTML = "";
   document.getElementById("done").innerHTML = "";
 }
+
 
 /** 
  * This function creates a task-card for each task in its corresponding progress-category
@@ -36,6 +38,7 @@ function renderTasks() {
   renderDropdownAreas();
 }
 
+
 /** 
  * This function calculates the progress of the subtasks of a task in percents
  * 
@@ -51,6 +54,7 @@ function progressSubtasksPercentage(indexTask) {
   }
 }
 
+
 /**
  * This function counts the number of subtasks of a task and returns the value
  * 
@@ -64,6 +68,7 @@ function countTotalSubtasks(indexTask) {
   }
   return totalSubtasks;
 }
+
 
 /**
  * This function counts the number of completed subtasks of a task and returns the value
@@ -84,6 +89,7 @@ function countCompletedSubtasks(indexTask) {
   return completedSubtasks;
 }
 
+
 /**
  * This function displays the assigned contacts for a task
  * 
@@ -102,6 +108,7 @@ function displayAssignedContacts(indexTask) {
   }
   shortAssignedToListBoard(indexTask)
 }
+
 
 /**
  * This function checks the number of assigned to contacts for a task. If there are more than five contacts, only the first five are shown and the other ones are hidden.
@@ -125,6 +132,7 @@ function shortAssignedToListBoard(indexTask) {
   }
 }
 
+
 /**
  * This function hides the representation of the subtasks-progress, if a task has no subtasks assigned
  * 
@@ -135,6 +143,7 @@ function hideSubtasksProgressForNoSubtasks(indexTask) {
     document.getElementById("boardProgressSubtask" + indexTask).classList.add("d-none");
   }
 }
+
 
 /**
  * This function checks if a task-category contains tasks and toggles the 'no task'-message accordingly
@@ -152,12 +161,14 @@ function toggleMessageNoTasks() {
   }
 }
 
+
 function renderDropdownAreas() {
   document.getElementById("toDo").innerHTML += getBoardDropDownAreaTemplate("toDo");
   document.getElementById("inProgress").innerHTML += getBoardDropDownAreaTemplate("inProgress");
   document.getElementById("awaitFeedback").innerHTML += getBoardDropDownAreaTemplate("awaitFeedback");
   document.getElementById("done").innerHTML += getBoardDropDownAreaTemplate("done");
 }
+
 
 /**
  * This function checks if the searchInput contains three or more characters. If so, it executes the displayFilteredTasks()-function
@@ -179,6 +190,7 @@ function startSearchingTasks() {
   toggleMessageNoTasks();
 }
 
+
 /**
 * This function fills the progress-categories with the filtered elements.
 * 
@@ -199,6 +211,7 @@ function displayFilteredTasks(searchInput) {
   showNoResultsAlert()
 }
 
+
 /**
 * This function shows the "no result matches the search criteria"-message if no tasks could have been found.
 */
@@ -207,6 +220,7 @@ function showNoResultsAlert() {
     document.getElementById("noResultSearchInput").classList.remove("d-none");
   }
 }
+
 
 /**
 * This function filters those tasks from the tasks-array, whose title or description contain the searchInput
@@ -226,6 +240,7 @@ function filterTasks(searchInput) {
   }
 }
 
+
 /**
  * This function gives all dropdown-areas the "d-none"-class
  */
@@ -235,6 +250,7 @@ function hideDropdownAreas() {
   document.getElementById("dropdownAreaawaitFeedback").classList.add("d-none");
   document.getElementById("dropdownAreadone").classList.add("d-none");
 }
+
 
 /**
  * shows the position, where the elemnt would be visible if the user drops it
@@ -247,6 +263,7 @@ function showDropdownArea(contentRefId) {
   dropDownArea.classList.remove("d-none");
 
 }
+
 
 /**
  * Sets the dragged element's ID in the dataTransfer object.
@@ -278,6 +295,7 @@ function drop(event) {
   }
 }
 
+
 /**
  * This function checks, if the progress of a task had changed.
  * If yes, it updates the data in firebase
@@ -294,6 +312,7 @@ async function updateTaskProgress(progress, indexTask) {
     toggleMessageNoTasks();
   }
 }
+
 
 /**
  * This function lets users with mobile devices move a task to another progress-category
