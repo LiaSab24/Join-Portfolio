@@ -131,7 +131,7 @@ function getTaskPriority() {
     if (clickedPriority == null) {
         return "";
     } else {
-        return clickedPriority.innerText;
+        return clickedPriority.innerText.trim();
     }
 }
 

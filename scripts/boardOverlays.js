@@ -40,7 +40,7 @@ async function openEditTaskOverlay(progress, indexTask) {
     let overlayContentRef = document.getElementById("editTaskOverlayContent");
     overlayRef.classList.remove("d-none");
     overlayContentRef.innerHTML = "";
-    overlayContentRef += await boardAddTask('edit', progress, indexTask);
+    await boardAddTask('edit', progress, indexTask);
 }
 
 
@@ -262,13 +262,25 @@ function fillEditTaskInputs(indexTask) {
     document.getElementById("addTaskTitle").value = tasks[indexTask].title;
     document.getElementById("addTaskDescription").value = tasks[indexTask].description;
     document.getElementById("addTaskDate").value = tasks[indexTask].dueDate;
+    document.getElementById("addTaskCategory").placeholder = tasks[indexTask].category;
+    setEditTaskPriority(tasks[indexTask].priority);
+    fillEditTaskFormLists(indexTask);
+}
+
+
+/**
+ * This function activates the priority-button matching the task's saved priority
+ *
+ * @param {string} priority - the saved priority of the task (may contain whitespace)
+ */
+function setEditTaskPriority(priority) {
+    priority = (priority || "").trim();
     document.getElementById("prioMedium").classList.remove("prioMediumClicked", "clicked");
     document.getElementById("prioMediumImg").src = "../assets/icons/prioMedium.svg";
-    document.getElementById("prio" + tasks[indexTask].priority).classList.add("prio" + tasks[indexTask].priority + "Clicked");
-    document.getElementById("prio" + tasks[indexTask].priority).classList.add("clicked");
-    document.getElementById("prio" + tasks[indexTask].priority + "Img").src = "../assets/icons/prio" + tasks[indexTask].priority + "-clicked.svg";
-    document.getElementById("addTaskCategory").placeholder = tasks[indexTask].category;
-    fillEditTaskFormLists(indexTask);
+    let prioBtn = document.getElementById("prio" + priority);
+    if (!prioBtn) return;
+    prioBtn.classList.add("prio" + priority + "Clicked", "clicked");
+    document.getElementById("prio" + priority + "Img").src = "../assets/icons/prio" + priority + "-clicked.svg";
 }
 
 
