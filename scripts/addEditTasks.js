@@ -67,24 +67,34 @@ function getAssignedContacts() {
 
 
 /**
- * This function checks if the picked date is valide (not in the past)
+ * This function checks if the picked date is valid (not empty and not in the past)
+ *
+ * @returns {string|false|undefined} the date value if valid, false if past, undefined if empty
  */
 function checkDateInput() {
+    let dateValue = document.getElementById("addTaskDate").value;
+    if (dateValue == "") {
+        checkFilledInput("addTaskDate");
+        return;
+    }
+    return validateFutureDate(dateValue);
+}
+
+
+/**
+ * This function checks whether a given date is today or in the future
+ *
+ * @param {string} dateValue - the date string from the date-input
+ * @returns {string|false} the date value if today or later, otherwise false
+ */
+function validateFutureDate(dateValue) {
     let today = new Date();
     today.setHours(0, 0, 0, 0);
-    let dateInput = new Date(document.getElementById("addTaskDate").value);
+    let dateInput = new Date(dateValue);
     dateInput.setHours(0, 0, 0, 0);
-    if (document.getElementById("addTaskDate").value == "") {
-        checkFilledInput("addTaskDate");
-    } else {
-        if (dateInput - today >= 0) {
-            return document.getElementById("addTaskDate").value
-        }
-        else { 
-            dateInputInvalid();
-            return false; 
-        }
-    }
+    if (dateInput - today >= 0) return dateValue;
+    dateInputInvalid();
+    return false;
 }
 
 

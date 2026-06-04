@@ -104,29 +104,31 @@ function headerUser() {
 
 
 /**
- * This function adds the "active"-class to sidebar-link of the current page
+ * This function adds the "active"-class to the sidebar-link of the current page
  */
 function setActiveMenuLink() {
   let location = window.location.href;
-  let currentPage = (name) => {
-    if (location.includes(name)) {
-      return location;
-    }
+  let pageLinks = {
+    summary: "summaryLink", addTask: "addTaskLink", board: "boardLink",
+    contacts: "contactsLink", privacyPolicy: "privacyPolicyLink", legalNotice: "legalNoticeLink"
+  };
+  for (let page in pageLinks) {
+    activateLinkIfCurrent(location, page, pageLinks[page]);
   }
+}
 
-  switch (location) {
-    case currentPage("summary"):
-      document.getElementById("summaryLink").classList.add("active"); break;
-    case currentPage("addTask"):
-      document.getElementById("addTaskLink").classList.add("active"); break;
-    case currentPage("board"):
-      document.getElementById("boardLink").classList.add("active"); break;
-    case currentPage("contacts"):
-      document.getElementById("contactsLink").classList.add("active"); break;
-    case currentPage("privacyPolicy"):
-      document.getElementById("privacyPolicyLink").classList.add("active"); break;
-    case currentPage("legalNotice"):
-      document.getElementById("legalNoticeLink").classList.add("active"); break;
+
+/**
+ * This function adds the "active"-class to a sidebar-link if the location matches the page
+ *
+ * @param {string} location - the current page url
+ * @param {string} page - the page-name to match in the url
+ * @param {string} linkId - the id of the sidebar-link to activate
+ */
+function activateLinkIfCurrent(location, page, linkId) {
+  let link = document.getElementById(linkId);
+  if (location.includes(page) && link) {
+    link.classList.add("active");
   }
 }
 
