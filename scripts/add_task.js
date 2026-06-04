@@ -291,6 +291,20 @@ function addSubtaskToList() {
     }
 }
 
+
+/**
+ * This function handles the Enter key in the subtask-input so it adds a subtask
+ * instead of submitting the whole add-task-form (the main task)
+ *
+ * @param {KeyboardEvent} event - the keydown-event of the subtask-input
+ */
+function handleSubtaskEnter(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        addSubtaskToList();
+    }
+}
+
 /**
  * This function replaces the subtask-list element with an input (template).
  * This way the user is able to edit the subtask-content.

@@ -112,7 +112,7 @@
 
                     <label id="subtaskLabel" for="addTaskSubtask flex">Subtasks</label>
                     <div class="add-task-subtasks flex">
-                        <input onfocus="changeSubtaskIcons()" onfocusout="changeSubtaskIcons()" type="text"
+                        <input onfocus="changeSubtaskIcons()" onfocusout="changeSubtaskIcons()" onkeydown="handleSubtaskEnter(event)" type="text"
                             id="addTaskSubtask" placeholder="Add new subtask">
                         <div class="subtasks-input-icons flex align-center">
                             <img id="subtaskIconAdd" class="subtask-icon"
