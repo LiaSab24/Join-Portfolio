@@ -60,7 +60,7 @@ async function boardAddTask(overlay, progress, indexTask) {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, "text/html");
             let addTaskOverlayContent = doc.querySelector('#addTask').innerHTML;
-            initBoard();
+//            initBoard();
             openBoardBgOverlay();
             if (overlay == "add") { openBoardAddTaskOverlay(addTaskOverlayContent, progress) }
             if (overlay == "edit") { adjustBoardEditTaskOverlay(addTaskOverlayContent, progress, indexTask) }
