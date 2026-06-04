@@ -151,6 +151,7 @@ async function addContact() {
     let contactName = validateNameInput("addContactName");
     let contactMail = validateMailInput("addContactMail");
     if (contactName !== "" && contactMail !== "" && document.getElementById("addContactPhone").value.trim() !== "") {
+        disableButton("contactsOverlayCreate");
         await postData("/contacts/", {
             "name": contactName,
             "mail": contactMail,
@@ -272,6 +273,7 @@ async function saveEditContact(indexContact) {
     let contactMail = validateMailInput("addContactMail");
     if (indexContact !== indexContactUser) {
         if (contactName !== "" && contactMail !== "" && document.getElementById("addContactPhone").value.trim() !== "") {
+            disableButton("contactsOverlaySave");
             await putData("/contacts/" + contacts[indexContact].url, {
                 "name": contactName,
                 "mail": contactMail,

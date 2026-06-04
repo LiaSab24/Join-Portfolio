@@ -370,6 +370,32 @@ function validateMailInput(contentRef) {
 }
 
 /**
+ * This function disables a button while a request is loading to prevent double-submits
+ *
+ * @param {string} buttonId - the id of the button that should be disabled
+ */
+function disableButton(buttonId) {
+  let button = document.getElementById(buttonId);
+  if (button) {
+    button.disabled = true;
+  }
+}
+
+
+/**
+ * This function re-enables a button after a request has finished
+ *
+ * @param {string} buttonId - the id of the button that should be enabled
+ */
+function enableButton(buttonId) {
+  let button = document.getElementById(buttonId);
+  if (button) {
+    button.disabled = false;
+  }
+}
+
+
+/**
  * This function lets the user navigate throught the sidear menu-links without needing to click
  */
 function initializeSidebarMenuLinks() {

@@ -1,9 +1,10 @@
 /**
  * This function reads out the data of the add-task-form and adds the task to tasks-array and firebase
  */
-function addTask() {
+async function addTask() {
     if (requirementsFullfilled()) {
-        postData("/tasks/", {
+        disableButton("addTaskCreate");
+        await postData("/tasks/", {
             "title": document.getElementById("addTaskTitle").value,
             "description": document.getElementById("addTaskDescription").value,
             "assignedTo": getAssignedContacts(),
@@ -178,9 +179,10 @@ function requirementsUnfullfilled() {
  * 
  * @param {number} indexTask - the index of the task in the tasks-array
  */
-function saveEditTask(indexTask) {
+async function saveEditTask(indexTask) {
     if (requirementsFullfilled()) {
-        putData("/tasks/" + tasks[indexTask].url, {
+        disableButton("editTaskOk");
+        await putData("/tasks/" + tasks[indexTask].url, {
             "title": document.getElementById("addTaskTitle").value,
             "description": document.getElementById("addTaskDescription").value,
             "assignedTo": getAssignedContacts(),
