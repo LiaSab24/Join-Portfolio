@@ -1,0 +1,173 @@
+/* board overlay: add/edit task overlay styles (split from board.css) */
+
+.animation-open-overlay {
+  animation: openOverlay;
+}
+
+@keyframes openOverlay {
+  from {
+    transform: translateX(150%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animation-close-overlay {
+  animation: closeOverlay;
+}
+
+@keyframes closeOverlay {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(150%);
+
+  }
+}
+
+.overlay-active {
+  z-index: 3;
+}
+
+.overlay-inactive {
+  opacity: 0;
+  z-index: 3;
+  animation: closeOverlay 10s ease-in-out forwards;
+}
+
+#boardOverlayBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+#addTaskOverlay {
+  height: fit-content;
+  max-width: 1116px;
+  border-radius: 30px;
+  background: var(--clr-white);
+  z-index: 6;
+  position: fixed;
+  align-self: anchor-center;
+  justify-self: anchor-center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#addTaskOverlayContent,
+#editTaskOverlayContent {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  align-items: end;
+}
+
+#addTaskOverlay {
+  height: 100%;
+  max-height: 870px;
+}
+
+#editTaskOverlayContent {
+  height: 100%;
+  max-height: 931px;
+}
+
+#editTaskOverlayContent::-webkit-scrollbar,
+#addTaskOverlayContent::-webkit-scrollbar {
+  display: none !important;
+}
+
+#animation {
+  animation: openOverlay 0.8s ease-in-out forwards;
+}
+
+#editTaskOverlay {
+  animation: none;
+}
+
+#addTaskOverlay .title {
+  width: 100%;
+  margin-top: 64px;
+  margin-right: 32px;
+  margin-left: 0;
+  padding: 0;
+  padding-bottom: 48px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#addTaskOverlay #addTaskForm {
+  flex: 1;
+}
+
+#addTaskOverlay #addTaskForm,
+#addTaskOverlay .add-task-submit {
+  width: 100%;
+  margin-left: 74px;
+  margin-right: 98px;
+}
+
+#addTaskOverlay .add-task-alerts {
+  align-self: start;
+}
+
+#addTaskOverlay .overlay-close {
+  align-self: baseline;
+}
+
+#addTaskOverlay .assigned-to {
+  z-index: 3;
+}
+
+#addTaskOverlay #addTaskDropdownContacts {
+  z-index: 4 !important;
+}
+
+#addTaskOverlay #addTaskAssignedToList {
+  align-self: start;
+  margin-left: 10px;
+  z-index: 2;
+
+  .profile-badge {
+    z-index: 2;
+  }
+}
+
+#addTaskOverlay .subtask-scrollbar,
+.edit-task-overlay .subtask-scrollbar {
+  max-height: 130px;
+}
+
+#addTaskOverlay .add-task-submit {
+  width: 956px;
+  margin: 0;
+  position: relative;
+  top: 0px;
+  justify-content: space-between;
+}
+
+#addTaskOverlay .add-task-requirements {
+  margin-left: 4px;
+}
+
+#addTaskOverlay #addTaskSubmitBtns {
+  margin-right: 0;
+}
+
+#addTaskOverlay #addTaskCancel {
+  background-color: var(--clr-white);
+  color: var(--clr-primary)
+}
+
