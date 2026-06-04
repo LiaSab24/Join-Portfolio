@@ -37,7 +37,8 @@
             width: auto;
 
             #addTaskForm {
-                width: 310px;
+                width: 100%;
+                max-width: 310px;
             }
 
             label,
@@ -52,7 +53,8 @@
             .addTaskSubtaskList div,
             .subtask,
             #addTaskSubmit {
-                width: 300px;
+                width: 100%;
+                max-width: 300px;
             }
 
             .add-task-submit {
@@ -203,7 +205,7 @@
     }
 
     .board-header h1 {
-        margin-left: -138px;
+        margin-left: 0;
     }
 
     #addTaskOverlay {

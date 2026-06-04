@@ -2,7 +2,7 @@
 
 #overviewOverlay,
 .edit-task-overlay {
-  width: clamp(320px, 80vw, 600px) !important;
+  width: clamp(280px, 90vw, 600px) !important;
   position: fixed;
   align-self: anchor-center;
   justify-self: anchor-center;
