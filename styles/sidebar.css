@@ -1,0 +1,144 @@
+/* Sidebar-Grundstile - flexibel und dynamisch */
+.sidebar {
+  background-color: var(--clr-primary);
+  width: 232px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-nuevo);
+  padding: 64px 0;
+  z-index: 5;
+}
+
+/* Logo-Stile */
+.logo {
+  width: 100px;
+  height: 122px;
+}
+ 
+/* Menü-Container */
+.menu {
+  width: 100%;
+  padding-top: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.menu-link {
+  width: 100%;
+  height: 46px;
+  padding: 8px 53px;
+  display: flex;
+  align-items: center; 
+  gap: 10px;
+  cursor: pointer;
+  color: var(--clr-lighterGray);
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: var(--clr-click);
+    color: var(--clr-white);
+  }
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+  .text {
+    font-size: clamp(0.75rem, 0.6121rem + 0.6897vw, 1rem);
+    white-space: nowrap;
+  }
+}
+
+.active {
+  background-color: var(--clr-click);
+  color:var(--clr-white);
+}
+
+.nav {
+  padding-top: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  .nav-link {
+    color: var(--clr-lightGray);
+    text-decoration: none;
+    text-align: center;
+    p {
+      line-height: 3;
+    }
+    &:hover {
+      color: var(--clr-white);
+    }
+  }
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    justify-content: center;
+    padding: 0 clamp(1rem, -0.6552rem + 8.2759vw, 4rem); 
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .menu {
+    height: 80px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+  }
+
+  .menu-link {
+    height: 76px;
+    padding: 1px 4px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 4px;
+  }
+  
+  .nav {
+    display: none;
+  }
+}
+
+/* Barrierefreiheit verbessern */
+.menu-link:focus {
+  outline: 1px solid var(--clr-white);
+  outline-offset: -2px;
+}
+
+.menu-link:focus:not(:focus-visible) {    
+  outline: none;
+}
+
+/* Für Screen Reader und Tastaturbedienung */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

@@ -1,0 +1,29 @@
+.headline-container {
+  justify-content: space-between;
+  padding: 90px 90px 30px;
+  @media (max-width: 900px) {
+    padding: 24px 0 30px;
+  }
+}
+
+.main-container {
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 90px;
+  @media (max-width: 900px) {
+    padding: 0;
+  }
+}
+
+.content {
+  padding: 16px;
+}
+
+h4 {
+  padding-top: 16px;
+}
+
+p,
+li {
+  margin-bottom: 8px;
+}

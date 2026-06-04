@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Sign Up</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icons/joinBlue.svg" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/x-icon" href="../assets/icons/joinWhite.svg" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../styles/root.css">
+    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+    <link rel="stylesheet" href="../styles/sign_up.css">
+
+    <script src="../script.js"></script>
+    <script src="../scripts/signup.js"></script>
+    <script src="../scripts/include.js"></script> 
+</head> 
+
+<body onload="initSignUp()" class="Body-LogIn">
+    <section>
+        <div class="inner-container">
+            <div class="Mobile-Header-Icon">
+                <img class="blue-icon" src="../assets/icons/joinBlue.svg" alt="Main Logo in Blue Color" srcset="">
+            </div>
+
+            <div class="log-in-wrapper">
+                <div class="Form-Wrapper">
+                    <form>
+                        <div class="Head-Line">
+                            <div class="back-arrow">
+                                <a href="../index.html"><img src="../assets/icons/arrow-left-line.png" alt=""
+                                        srcset=""></a>
+                            </div>
+                            <h1>Sign up</h1>
+                            <img src="../assets/icons/underline.svg" alt="LightBlue Textdecoration Underline" srcset="">
+                        </div>
+                        <div class="Input-Field">
+                            <input onblur="checkFilledInput('name')" autocomplete="username" id="name" required
+                                type="text" placeholder="Name" minlength="1" maxlength="30">
+                            <input onblur="checkFilledInput('mail')" autocomplete="email" id="mail" required
+                                type="email" placeholder="Email" minlength="1" maxlength="30">
+                            <div class="password-wrapper">
+                                <input onblur="checkFilledInput('password')" autocomplete="new-password" id="password"
+                                    name="password" type="password" placeholder="Password" minlength="1" maxlength="18">
+                            </div>
+                            <div class="password-wrapper">
+                                <input onblur="checkFilledInput('confirmed')" autocomplete="current-password"
+                                    id="confirmed" name="confirmed" required type="password"
+                                    placeholder="Confirm Password">
+                            </div>
+                            <div class="Checkbox-Remember-Me">
+                                <input required type="checkbox" name="Remember-me" id="checkboxSignUp">
+                                <span>I accept the <a href="./privacy_policy.html" target="_blank">Privacy
+                                        Policy</a></span>
+                            </div>
+                        </div>
+                        <div class="sign-up-alerts flex">
+                            <span id="alertName" class="input-error invisible">Please enter a valid name</span>
+                            <span id="alertMail" class="input-error invisible">Please enter a valid email address</span>
+                            <span id="alertPasswordSignUp" class="input-error invisible">Please enter a valid
+                                password</span>
+                            <span id="alertConfirmSignUp" class="input-error invisible">Please make sure your passwords
+                                match</span>
+                            <span id="alertCheckboxSignUp" class="input-error invisible">Please accept the Privacy
+                                Policy</span>
+                        </div>
+                        <div class="Button-Area">
+                            <button onclick="addUser(); return false" class="Blue-BTN">Sign up</button>
+                        </div>
+                    </form>
+                </div>
+                <section class="messages">
+                    <div id="userSuccesfullyCreated" class="succesfull-msg">
+                        <span>You signed up succesfully</span>
+                    </div>
+                </section>
+            </div>
+            <div class="Policy-Area">
+                <a href="./privacy_policy_external.html" target="_blank">Privacy Policy</a>
+                <a href="./legal_notice_external.html" target="_blank">Legal notice</a>
+            </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Board</title>
+  <link rel="icon" type="image/x-icon" href="../assets/icons/joinBlue.svg" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/x-icon" href="../assets/icons/joinWhite.svg" media="(prefers-color-scheme: dark)" />
+
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../styles/root.css">
+  <link rel="stylesheet" href="../styles/navigation.css">
+  <link rel="stylesheet" href="../fonts/fonts.css">
+  <link rel="stylesheet" href="../styles/board.css">
+  <link rel="stylesheet" href="../styles/boardMobile.css">
+  <link rel="stylesheet" href="../styles/header.css">
+  <link rel="stylesheet" href="../styles/sidebar.css">
+  <link rel="stylesheet" href="../styles/add_task.css">
+
+  <script src="../script.js"></script>
+  <script src="../scripts/include.js"></script>
+  <script src="../scripts/templates.js"></script>
+  <script src="../scripts/board.js"></script>
+  <script src="../scripts/board_overlays.js"></script>
+  <script src="../scripts/add_edit_tasks.js"></script>
+  <script src="../scripts/add_task.js"></script>
+</head> 
+
+<body onload="initBoard()">
+  <div w3-include-html="header.html"></div>
+  <div w3-include-html="sidebar.html"></div>
+  <main>
+    <section class="board-header">
+      <h1>Board</h1>
+      <div class="input-container">
+
+        <div class="search-container">
+          <input onkeyup="startSearchingTasks()" id="searchInput" type="text" placeholder="Find task">
+          <div class="search-input-icons">
+            <div class="search-container-seperator"></div>
+            <img src="../assets/icons/search.png" alt="Search" class="search-icon">
+          </div>
+        </div>
+
+        <button class="button" onclick="boardAddTask('add', 'toDo')">
+          <h2>Add Task</h2>
+          <img src="../assets/icons/add.png" alt="Add">
+        </button>
+      </div>
+    </section>
+    <section class="task-container">
+      <div class="task-wrapper">
+        <div class="task-headline">
+          <h2>To Do</h2>
+          <div onclick="boardAddTask('add', 'toDo')" class="icon-container"><img src="../assets/icons/plus-button.png"
+              alt="Add Button"></div>
+        </div>
+        <div class="no-task-message-container">
+          <div class="no-task-message" id="noTask">No tasks to do</div>
+        </div>
+        <div id="toDo" class="board-tasks-list" ondrop="drop(event)" ondragover="event.preventDefault()" ondragenter="showDropdownArea('toDo')"></div>
+      </div>
+
+      <div class="task-wrapper">
+        <div class="task-headline">
+          <h2>In Progress</h2>
+          <div onclick="boardAddTask('add', 'inProgress')" class="icon-container"><img
+              src="../assets/icons/plus-button.png" alt="Add Button"></div>
+        </div>
+        <div class="no-task-message-container">
+          <div class="no-task-message" id="noTaskInProgress">No tasks in progress</div>
+        </div>
+        <div id="inProgress" class="board-tasks-list" ondrop="drop(event)" ondragover="event.preventDefault()" ondragenter="showDropdownArea('inProgress')">
+        </div>
+      </div>
+
+      <div class="task-wrapper">
+        <div class="task-headline">
+          <h2>Await Feedback</h2>
+          <div onclick="boardAddTask('add', 'awaitFeedback')" class="icon-container"><img
+              src="../assets/icons/plus-button.png" alt="Add Button"></div>
+        </div>
+        <div class="no-task-message-container">
+          <div class="no-task-message" id="noTaskAwaitFeedback">No tasks await feedback</div>
+        </div>
+        <div id="awaitFeedback" class="board-tasks-list" ondrop="drop(event)" ondragover="event.preventDefault()" ondragenter="showDropdownArea('awaitFeedback')"></div>
+      </div>
+
+      <div class="task-wrapper">
+        <div class="task-headline">
+          <h2>Done</h2> 
+          <br>
+        </div>
+        <div class="no-task-message-container margin">
+          <div class="no-task-message" id="noTaskDone">No tasks done</div>
+        </div>
+        <div id="done" class="board-tasks-list" ondrop="drop(event)" ondragover="event.preventDefault()" ondragenter="showDropdownArea('done')"></div>
+      </div>
+    </section>
+
+  </main>
+  <section id="boardOverlayBg" class="d-none" onclick="closeOverlays()"></section>
+  <section id="addTaskOverlay" class="d-none">
+    <div id="addTaskOverlayContent"></div>
+  </section>
+  <section id="overviewOverlay" class="d-none"></section>
+  <section id="editTaskOverlay" class="d-none">
+    <div id="editTaskOverlayContent"></div>
+  </section>
+  <section class="messages">
+    <div id="taskSuccesfullyCreated" class="succesfull-msg">
+      <span>Task succesfully created</span>
+    </div>
+    <div id="taskSuccesfullyEdited" class="succesfull-msg">
+      <span>Task succesfully edited</span>
+    </div>
+    <div id="taskSuccesfullyDeleted" class="succesfull-msg">
+      <span>Task succesfully deleted</span>
+    </div>
+  </section>
+  <section id="noResultSearchInput" class="no-task-message-container d-none">no result matches the search criteria</section>
+  <section onclick="toggleSubmenu()" id="submenuOverlay" class="d-none">
+    <div id="submenu" class="submenu" onclick="event.stopImmediatePropagation()">
+        <p class="hide-help-option-desktop"><a href="../html/help.html">Help</a></p>
+        <p><a href="../html/legal_notice.html">Legal Notice</a></p>
+        <p><a href="../html/privacy_policy.html">Privacy Policy</a></p>
+        <p><a href="../index.html">Logout</a></p>
+    </div>
+</section>
+  <script>includeHTML();</script>
+</body>
+
+</html>

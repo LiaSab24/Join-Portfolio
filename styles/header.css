@@ -1,0 +1,153 @@
+.header-new {
+  height: 96px;
+  padding: 20px 40px 20px 348px;
+  background: var(--clr-white);
+  box-shadow: var(--shadow-barrasuperior);
+  position: relative;
+
+  .header-text {
+    font-size: 1.25rem;
+    line-height: 24px;
+    text-align: left;
+    text-decoration-skip-ink: none;
+  }
+}
+
+.header-img-container {
+  width: fit-content;
+  max-width: 104px;
+  height: fit-content;
+  max-height: 56px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  .help {
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+
+    .help-img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.user-initial-new {
+  width: 56px;
+  height: 56px;
+  border: 3px solid var(--clr-primary);
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  color: var(--clr-lightBlue);
+  font-weight: var(--fw-700);
+}
+
+.user-initial-new:hover {
+  background: linear-gradient(0deg, rgba(12, 46, 98, 0.12), rgba(12, 46, 98, 0.12));
+}
+
+.help-new {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 3px solid var(--clr-lightGray);
+  text-decoration: none;
+  color: var(--clr-lightGray);
+}
+
+.help-new:hover {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+
+@media (max-width: 900px) {
+  .header-new {
+    height: 80px;
+    padding: 20px 16px;
+  }
+
+  .header-logo {
+    width: 32px;
+    height: 39px;
+    animation-timing-function: ease-in-out;
+    animation-duration: 100ms;
+  }
+
+  .header-text {
+    display: none;
+  }
+
+  .help-new {
+    display: none;
+  }
+
+  .submenu {
+    top: 80px;
+  }
+}
+
+@media (min-width: 900px) {
+  .header-logo {
+    display: none;
+  }
+}
+
+#submenuOverlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  z-index: 1;
+}
+
+.submenu {
+  width: fit-content;
+  max-width: 150px;
+  height: fit-content;
+  position: absolute;
+  top: 96px;
+  right: 20px;
+  padding: 20px 20px 5px 20px;
+  border-radius: 20px 0px 20px 20px;
+  background: var(--clr-primary);
+  box-shadow: var(--shadow-nuevo);
+  color: var(--clr-lightGray);
+  z-index: 2;
+
+  p {
+    margin-bottom: 15px;
+
+    a {
+      color: var(--clr-lightGray);
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--clr-lighterGray);
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    top: 80px;
+  }
+}
+
+.hide-help-option-desktop {
+  display: none;
+
+  @media (max-width: 900px) {
+    display: block;
+  }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Login</title>
+    <link rel="icon" type="image/x-icon" href="./assets/icons/joinBlue.svg" media="(prefers-color-scheme: light)"/>
+    <link rel="icon" type="image/x-icon" href="./assets/icons/joinWhite.svg" media="(prefers-color-scheme: dark)"/>
+  
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/root.css">
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    <link rel="stylesheet" href="./styles/login.css">
+
+    <script src="./script.js"></script> 
+    <script src="./scripts/login.js"></script>
+</head>  
+<body onload="initLogIn()" class="flex just-center align-center">
+    <section>
+        <div class="overlay">
+            <img class="white-icon" src="./assets/icons/joinWhite.svg" alt="Join Logo">
+        </div>
+        <div class="mobile-header-icon">
+            <img class="blue-icon" src="./assets/icons/joinBlue.svg" alt="Join Logo">
+        </div>
+        <div class="log-in-wrapper flex just-center align-center">
+            <div class="form-wrapper">
+                <form>
+                    <div class="hero">
+                        <h1>Log in</h1>
+                        <img src="./assets/icons/underline.svg" alt="Underline">
+                    </div>
+                    <div class="input-field flex align-center">
+                        <input onblur="checkFilledInput('mail')" autocomplete="email" id="mail" required type="email" placeholder="Email" minlength="1" maxlength="30">
+                        <div class="password-wrapper">
+                            <input onblur="checkFilledInput('password')" autocomplete="new-password"  id="password" name="password" type="password" placeholder="Password">
+                        </div>
+                        <span id="alertLogIn" class="input-error invisible">Please check your email and password and try again.</span>
+                    </div>
+                    <div class="button-container flex just-center align-center">
+                        <button onclick="logIn(); return false" class="blue-btn">Log in</button>
+                        <button onclick="guestLogin(); return false" class="white-btn">Guest Log in</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="sign-up-container flex align-center just-center">
+            <p>Not a Join user?</p>
+            <a class="blue-btn" href="./html/sign_up.html">Sign up</a>
+        </div>
+
+        <div class="policy-container">
+            <a href="./html/privacy_policy_external.html" target="_blank">Privacy Policy</a>
+            <a href="./html/legal_notice_external.html" target="_blank">Legal notice</a>
+        </div>
+    </section>
+</body>
+</html>

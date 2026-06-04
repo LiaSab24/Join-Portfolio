@@ -1,0 +1,20 @@
+header {
+    height: 96px;
+    width: 100%;
+    background-color: aqua;
+}
+
+.sidebar-wrapper {
+    height: 100dvh;
+    width: 232px;
+    background-color: rgb(42,54,71);
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+footer {
+    height: 80px;
+    width: 100%;
+    background-color: aqua;
+}
