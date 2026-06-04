@@ -45,14 +45,14 @@ async function openEditTaskOverlay(progress, indexTask) {
 
 
 /**
- * This function fetches the main-part of the add_task.html and implementes it in the #addTaskOverlay-section
+ * This function fetches the main-part of the addTask.html and implementes it in the #addTaskOverlay-section
  * 
  * @param {string} overlay - the overlay, that should get the fetched html-data
  * @param {string} progress - the progress-category, where the new task should be in after submitting
  * @param {number} indexTask - the index of the task in the tasks-array
  */
 async function boardAddTask(overlay, progress, indexTask) {
-    fetch('add_task.html')
+    fetch('addTask.html')
         .then(response => {
             return response.text()
         })
@@ -71,7 +71,7 @@ async function boardAddTask(overlay, progress, indexTask) {
 /**
 * This function is part of the boardAddTask()-function and adds visibility of the #addTaskOverlay
 * 
-* @param {html} addTaskOverlay - the html of the main-part of the add_task.html
+* @param {html} addTaskOverlay - the html of the main-part of the addTask.html
 * @param {string} progress - the progress-category, where the new task should be in after submitting
 */
 async function openBoardAddTaskOverlay(addTaskOverlayContent, progress) {
@@ -102,7 +102,7 @@ function adjustAddTaskProgress(progress) {
 /**
  * This function is part of the boardAddTask()-function and adds visibility of the #addTaskOverlay
  * 
- * @param {html} addTaskOverlayContent - the html-content of the main-part of the add_task.html
+ * @param {html} addTaskOverlayContent - the html-content of the main-part of the addTask.html
  * @param {string} progress - the progress-category, where the new task should be in after submitting
  * @param {number} indexTask - the index of the task in the tasks-array
  */

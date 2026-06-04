@@ -117,15 +117,15 @@ function setActiveMenuLink() {
   switch (location) {
     case currentPage("summary"):
       document.getElementById("summaryLink").classList.add("active"); break;
-    case currentPage("add_task"):
+    case currentPage("addTask"):
       document.getElementById("addTaskLink").classList.add("active"); break;
     case currentPage("board"):
       document.getElementById("boardLink").classList.add("active"); break;
     case currentPage("contacts"):
       document.getElementById("contactsLink").classList.add("active"); break;
-    case currentPage("privacy_policy"):
+    case currentPage("privacyPolicy"):
       document.getElementById("privacyPolicyLink").classList.add("active"); break;
-    case currentPage("legal_notice"):
+    case currentPage("legalNotice"):
       document.getElementById("legalNoticeLink").classList.add("active"); break;
   }
 }

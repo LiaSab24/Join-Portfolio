@@ -1,5 +1,5 @@
 /**
- * This function is the inital function, when add_task.html loaded and executes the init()-function and further necessary add-task-functions
+ * This function is the inital function, when addTask.html loaded and executes the init()-function and further necessary add-task-functions
  */
 async function initAddTask() {
     await init();
