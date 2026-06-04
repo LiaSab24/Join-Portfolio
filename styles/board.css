@@ -216,7 +216,7 @@ button img {
   padding-bottom: 24px;
   border: 2px dashed transparent;
   border-radius: 12px;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.1s ease, border-color 0.1s ease;
 }
 
 .margin {
@@ -389,7 +389,7 @@ button img {
 .todo-wrapper .task-card {
   margin-top: 10px;
   padding: 15px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 .animation-open-overlay {
@@ -845,7 +845,7 @@ button img {
   background-color: rgba(240, 240, 240, 0.8);
   border: 2px dashed var(--clr-lightGray);
   border-radius: 12px;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.1s ease;
   height: auto;
 }
 

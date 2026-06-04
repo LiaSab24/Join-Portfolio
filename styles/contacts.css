@@ -280,7 +280,7 @@ main {
     z-index: 5;
     background-color: rgb(0, 0, 0, 0.3);
     transition-property: all;
-    transition-duration: 300ms;
+    transition-duration: 100ms;
     transition-timing-function: linear;
 }
 

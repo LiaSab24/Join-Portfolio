@@ -80,7 +80,7 @@ main {
   border-radius: var(--border-radius-bg);
   background-color: var(--clr-white);
   box-shadow: var(--shadow-nuevo);
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 .summary-number {

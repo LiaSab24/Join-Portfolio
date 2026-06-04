@@ -186,7 +186,7 @@ input,
   cursor: pointer;
   border: none;
   font-weight: var(--fw-700);
-  transition: all .3s ease-in-out;
+  transition: all .1s ease-in-out;
 
   @media (max-width: 900px) {
     width: 180px;

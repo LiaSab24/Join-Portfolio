@@ -279,7 +279,7 @@ input[type="checkbox"]:checked {
     border: none;
     font-weight: var(--fw-600);
     cursor: pointer;
-    transition: all .3s ease-in-out;
+    transition: all .1s ease-in-out;
 }
 
 .Blue-BTN:hover{
