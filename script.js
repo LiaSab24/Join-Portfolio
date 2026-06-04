@@ -133,7 +133,7 @@ function setActiveMenuLink() {
 async function postData(path = "", data = {}) {
   let response = await fetch(BASE_URL + path + ".json", {
     method: "POST",
-    header: {
+    headers: {
       "Content-type": "application/json",
     },
     body: JSON.stringify(data)
@@ -156,7 +156,7 @@ async function putData(path = "", data = {}) {
   }
   let response = await fetch(BASE_URL + path + ".json", {
     method: "PUT",
-    header: {
+    headers: {
       "Content-type": "application/json",
     },
     body: JSON.stringify(data)
